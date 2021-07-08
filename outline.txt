@@ -1,0 +1,11 @@
+Chat App outline 
+
+first make login page with basic components and add css 
+next make the logged in page 
+
+
+/* login page */
+label input field for user name
+button to submit 
+when user hits submit and a user name has been chosen send user
+to logged in page. maybe use redux to share user info between pages.
