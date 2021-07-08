@@ -4,6 +4,19 @@ import '../../public/misc/shootinStar.mp3';
 const origin = window.location.origin;
 
 export const Login = () => {
+    const audio = new Audio(origin + '/misc/shootinStar.mp3');
+    let isPlaying = false;
+
+    const playMeme = () => { 
+        if(!isPlaying){
+            audio.play();
+            audio.loop = 'loop';
+            isPlaying = true;
+        }else{
+            audio.pause();
+            isPlaying = false;
+        }
+    }
 
     return (
         <div id="loginWrapper">
@@ -17,15 +30,7 @@ export const Login = () => {
                     <input type="submit" id="loginBtn" value="Enter"></input>
                 </div>
             </form>
-            <img src={origin + '/images/pepeAudio.gif'} alt="playAudio" onClick={ () => {
-                    let audio = new Audio(origin + '/misc/shootinStar.mp3');
-                    if( audio.paused && audio.ended ){
-                        audio.play();
-                        audio.loop = 'loop'
-                    }else{
-                        audio.pause()
-                    }
-            }}></img>
+            <img id="pepe" src={origin + '/images/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>
         </div>
     );
 }
