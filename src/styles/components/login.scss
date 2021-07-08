@@ -39,7 +39,7 @@
     font-family: 'blox';
     font-size: 5em;
     position: absolute;
-    top: 2em;
+    top: 2.2em;
     margin: 0 auto;
 }
 
@@ -53,4 +53,11 @@
 
 img {
     background: none;
+}
+
+@media (max-width: 420px) {
+    .title{
+        margin-left: 75px;
+        top: -20;
+    }
 }
