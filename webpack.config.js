@@ -29,7 +29,7 @@ module.exports = {
           'sass-loader'
         ]
       }, {
-        test: /\.(gif|svg|jpg|png|otf)$/,
+        test: /\.(gif|svg|jpg|png|otf|ttf|mp3)$/,
         loader:'file-loader',
         options:{
           esModule:false,
