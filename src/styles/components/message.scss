@@ -1,0 +1,43 @@
+#msgContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#backgroundContainer{
+    width:60%;
+    height: 100%;
+    background: $aliceBlue;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#messageArea{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.messageInput{
+    padding:10px;
+}
+
+#inputArea{
+    max-width: 250px;
+    max-height: 20px;
+    min-width: 250px;
+    margin: 5px;
+}
+
+@media (max-width:420px) {
+    #backgroundContainer{
+        width: 75%;
+    }   
+}

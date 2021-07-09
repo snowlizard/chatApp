@@ -14,10 +14,16 @@ login page - done for the most page might add redux
 chat/main page - under construction 
 
 
-
+/** work out router switchin from login to main page to sign out button
 
 
 
 
 
 /** chat main page **/
+contains:
+    text field for messaging
+    label for username 
+    image for portrait ??
+    msg bubbles 
+    sign out button
