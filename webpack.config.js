@@ -33,7 +33,7 @@ module.exports = {
         loader:'file-loader',
         options:{
           esModule:false,
-          outputPath:'images'
+          outputPath:'misc'
         }
       }]
     },
