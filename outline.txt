@@ -9,3 +9,15 @@ label input field for user name
 button to submit 
 when user hits submit and a user name has been chosen send user
 to logged in page. maybe use redux to share user info between pages.
+404 page and styles - done
+login page - done for the most page might add redux 
+chat/main page - under construction 
+
+
+
+
+
+
+
+
+/** chat main page **/
