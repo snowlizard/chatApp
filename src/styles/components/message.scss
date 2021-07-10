@@ -22,22 +22,48 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column;
 }
 
 .messageInput{
-    padding:10px;
+    position: absolute;
+    border: 50px;
+    border-radius: 50px;
+    width:300px;
+    height: 250px;
+    padding: 2px;
+    top: 30%;
+    left: auto;
+    right: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: rgba(187, 187, 187, 0.6);
 }
 
-#inputArea{
-    max-width: 250px;
-    max-height: 20px;
-    min-width: 250px;
+#sideBar{
+    position: absolute;
+    right: 100px;
     margin: 5px;
 }
 
+#inputArea{
+    max-height: 180px;
+    max-width: 200px;
+    min-height: 180px;
+    min-width: 200px;
+    margin-bottom: 5px;
+}
+
+#sendMsg{
+    margin-right: 5px;
+}
 @media (max-width:420px) {
     #backgroundContainer{
         width: 75%;
-    }   
+    }
+
+    #sideBar{
+        right: 0;
+    }
 }
