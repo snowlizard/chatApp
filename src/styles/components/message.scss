@@ -7,7 +7,8 @@
 }
 
 #backgroundContainer{
-    width:60%;
+    align-self: flex-end;
+    width:80%;
     height: 100%;
     background: $aliceBlue;
     display: flex;
@@ -16,54 +17,42 @@
     justify-content: flex-end;
 }
 
-#messageArea{
+#inputContainer{
+    background: rgba(141, 153, 174, 0.7);
     width: 100%;
+    height: 10%;
+    display: flex;
+
+}
+
+#separator{
+    align-self: center;
+    width: 1px;
+    height: 80%;
+    border-right: 1px solid $spaceCadet;
+}
+
+#textInput{
+    width: 60%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+#textArea{
+    background: transparent;
+    border: none;
+    resize: none;
+    outline: none;
+    width: 98%;
+    height: 90%;
 }
 
-.messageInput{
-    position: absolute;
-    border: 50px;
-    border-radius: 50px;
-    width:300px;
-    height: 250px;
-    padding: 2px;
-    top: 30%;
-    left: auto;
-    right: auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
-    align-items: center;
-    background: rgba(187, 187, 187, 0.6);
+
+
+#sendBtn{
+    margin: 10px;
 }
 
-#sideBar{
-    position: absolute;
-    right: 100px;
-    margin: 5px;
-}
-
-#inputArea{
-    max-height: 180px;
-    max-width: 200px;
-    min-height: 180px;
-    min-width: 200px;
-    margin-bottom: 5px;
-}
-
-#sendMsg{
-    margin-right: 5px;
-}
 @media (max-width:420px) {
     #backgroundContainer{
         width: 75%;
-    }
-
-    #sideBar{
-        right: 0;
     }
 }

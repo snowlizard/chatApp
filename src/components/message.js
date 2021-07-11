@@ -1,36 +1,36 @@
 import React from 'react';
 
-export const Message = () => {
-
-    const msg = () => {
-        const container = document.getElementById('msgInput');
-        container.hidden = false;
+export class Message extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            msg: ''
+        };
     }
 
-    const cancel = () => {
-        const container = document.getElementById('msgInput');
-        container.hidden = true;
+    handleInput = (e) => {
+        console.log('he')
     }
 
-    return (
-        <div id="msgContainer">
-            <div id="backgroundContainer">
-                <div id="messageArea"></div>
-            </div>
-            <div className="messageInput" id="msgInput" hidden={true}>
-                    <div className="innerDiv">
-                        <textarea id="inputArea"></textarea>
-                    </div>
-                    <div className="innerDiv">
-                        <button id="sendMsg">Send</button>
-                        <button onClick={cancel} id="cancelSend">Cancel</button>
+    render = () => {
+        return(
+            <div id="msgContainer">
+                <div id="backgroundContainer">
+                    <div id="messageArea"></div>
+                    <div id="inputContainer">
+                        <div id="textInput">
+                            <textarea id="textArea"/>
+                        </div>
+                        <span id="separator"></span>
+                        <div id="buttonArea">
+                            <button id="sendBtn">Send</button>
+                        </div>
                     </div>
                 </div>
-            <div id="sideBar">
-                <div className="sideBtn">
-                    <button onClick={msg}>Msg</button>
-                </div>
             </div>
-        </div>
-    );
+        )
+    };
+
+    
 }
+
