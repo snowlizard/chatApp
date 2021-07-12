@@ -14,9 +14,17 @@ export class Message extends React.Component {
         val.value = '';
     }
 
+    signout = () => {
+
+    }
+
     render = () => {
         return(
             <div id="msgContainer">
+                <div id="signOut" onClick={this.signout}>
+                    <p>sign out</p>
+                </div>
+                <span className="separator"/>
                 <div id="backgroundContainer">
                     <div id="messageArea"></div>
                     <div id="inputContainer">
