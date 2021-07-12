@@ -9,7 +9,9 @@ export class Message extends React.Component {
     }
 
     handleInput = (e) => {
-        console.log('he')
+        let val = document.getElementById('textArea');
+        console.log(val.value)
+        val.value = '';
     }
 
     render = () => {
@@ -23,7 +25,7 @@ export class Message extends React.Component {
                         </div>
                         <span id="separator"></span>
                         <div id="buttonArea">
-                            <button id="sendBtn">Send</button>
+                            <button id="sendBtn" onClick={this.handleInput}>Send</button>
                         </div>
                     </div>
                 </div>
