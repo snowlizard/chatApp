@@ -1,12 +1,13 @@
 import React from 'react';import '../../public/misc/shootinStar.mp3';
 import { useHistory } from 'react-router';
-import firebase from '../firebase/firebase';
+import myApp from '../firebase/firebase';
+import firebase from 'firebase';
 import 'firebase/auth';
 
 
 
 let auth = firebase.auth();
-//auth.useEmulator('http://localhost:8080');
+let provider = new firebase.auth.GoogleAuthProvider();
 
 const origin = window.location.origin;
 
@@ -27,11 +28,11 @@ export const Login = () => {
     }
 
     const login = () => {
-        auth.signInAnonymously().then( () => {
+        firebase.auth().signInWithRedirect(provider);
+        let user = firebase.auth().currentUser;
+        if(user){
             history.push('/main');
-        }).catch( (error) => {
-            console.log(error)
-        })
+        }
     }
 
     return (

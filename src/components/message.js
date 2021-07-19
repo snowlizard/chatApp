@@ -1,46 +1,45 @@
 import React from 'react';
+import firebase from 'firebase/app';
 
-export class Message extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            msg: ''
-        };
-    }
-
-    handleInput = (e) => {
+export const Message = () => {
+    const auth = firebase.auth();
+    const database = firebase.database();
+    const msgDB= firebase.collection('messeges');
+    
+    const handleInput = (e) => {
+        const {uid, photoURL} = auth.currentUser;
         let val = document.getElementById('textArea');
-        console.log(val.value)
+
+        database.ref('/users' + uid).set({
+            message: val.value
+        });
+
         val.value = '';
     }
 
-    signout = () => {
-
+    const signout = () => {
+        firebase.auth().signOut();
     }
 
-    render = () => {
-        return(
-            <div id="msgContainer">
-                <div id="signOut" onClick={this.signout}>
-                    <p>sign out</p>
-                </div>
-                <span className="separator"/>
-                <div id="backgroundContainer">
-                    <div id="messageArea"></div>
-                    <div id="inputContainer">
-                        <div id="textInput">
-                            <textarea id="textArea"/>
-                        </div>
-                        <span id="separator"></span>
-                        <div id="buttonArea">
-                            <button id="sendBtn" onClick={this.handleInput}>Send</button>
-                        </div>
+    return(
+        <div id="msgContainer">
+            <div id="signOut" onClick={signout}>
+                <p>sign out</p>
+            </div>
+            <span className="separator"/>
+            <div id="backgroundContainer">
+                <div id="messageArea"></div>
+                <div id="inputContainer">
+                    <div id="textInput">
+                        <textarea id="textArea"/>
+                    </div>
+                    <span id="separator"></span>
+                    <div id="buttonArea">
+                        <button id="sendBtn" onClick={handleInput}>Send</button>
                     </div>
                 </div>
             </div>
-        )
-    };
-
+        </div>
+    );
     
 }
-
