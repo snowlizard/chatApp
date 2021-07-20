@@ -1,6 +1,6 @@
 import React from 'react';
 import { Login } from '../components/login';
-import { Message } from '../components/message';
+import { Message } from '../components/main';
 import { E404 } from '../components/404';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 

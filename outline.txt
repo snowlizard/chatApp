@@ -27,3 +27,13 @@ contains:
     image for portrait ??
     msg bubbles 
     sign out button
+
+got the database working atleast for the collection of messeges
+
+todo update
+update login page remove user name input or add anonymouse login
+work on message component and add to page order by timestamp
+add css
+
+after work on creating database of users?
+with each user containing contacts send private messages

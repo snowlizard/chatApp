@@ -1,19 +1,14 @@
 import React from 'react';
 import firebase from 'firebase/app';
+import { sendMsg } from '../firebase/mixins';
 
 export const Message = () => {
     const auth = firebase.auth();
-    const database = firebase.database();
-    const msgDB= firebase.collection('messeges');
     
     const handleInput = (e) => {
         const {uid, photoURL} = auth.currentUser;
         let val = document.getElementById('textArea');
-
-        database.ref('/users' + uid).set({
-            message: val.value
-        });
-
+        sendMsg(val.value, uid, photoURL)
         val.value = '';
     }
 
