@@ -4,12 +4,18 @@
 }
 
 #msgContainer{
-    width: 700px;
+    width: 1200px;
     height: 100vh;
     display: flex;
     flex-flow: row;
     align-items: center;
     background: $imperialRed;
+}
+
+#messageArea{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 #backgroundContainer{

@@ -1,13 +1,15 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
 
+export const database = firebase.database();
+
 export const sendMsg = (msg, uid, photoURL) => {
-    const collect  = firebase.firestore().collection('messages')
-    collect.add({
+    const collect  = database.ref('messages')
+    collect.push({
         uid,
         photoURL,
         msg,
-        sentAt: firebase.firestore.FieldValue.serverTimestamp(),
+        sentAt: Date.now()
     })
 
 }
