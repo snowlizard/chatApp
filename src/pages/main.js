@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
-import { sendMsg, database } from '../firebase/mixins';
+import { sendMsg, database } from '../services/mixins';
 import { Msg } from './msg';
-import { useHistory } from 'react-router';
 
 export const Message = () => {
     const auth = firebase.auth();
-    const hist = useHistory();
     
     let [chatLog, setChatLog] = useState([]);
 
@@ -21,15 +19,13 @@ export const Message = () => {
     }, [database]);
 
     const handleInput = (e) => {
-        const {uid, photoURL} = auth.currentUser;
+        const {uid, photoURL, displayName} = auth.currentUser;
         let val = document.getElementById('textArea');
-        sendMsg(val.value, uid, photoURL)
+        sendMsg(val.value, uid, photoURL, displayName);
         val.value = '';
     }
-
     const signout = () => {
         firebase.auth().signOut();
-        hist.push('/');
     }
     return(
         <div id="msgContainer">
@@ -40,7 +36,11 @@ export const Message = () => {
             <div id="backgroundContainer">
                 <div id="messageArea">
                     {
-                        chatLog && chatLog.map( log => {return <Msg key={log.sentAt} text={log.msg} photoURL={log.photoURL} />})
+                        chatLog && chatLog.map( log => 
+                            {return <Msg key={log.sentAt} 
+                                        displayName={log.displayName}
+                                        text={log.msg} 
+                                        photoURL={log.photoURL} />})
                     }
                 </div>
                 <div id="inputContainer">
