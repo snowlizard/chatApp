@@ -39,6 +39,7 @@ export const Message = () => {
                         chatLog && chatLog.map( log => 
                             {return <Msg key={log.sentAt} 
                                         displayName={log.displayName}
+                                        sentAt={log.sentAt}
                                         text={log.msg} 
                                         photoURL={log.photoURL} />})
                     }
