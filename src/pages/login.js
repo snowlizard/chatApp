@@ -3,7 +3,7 @@ import myApp from '../services/firebase';
 import firebase from 'firebase';
 import 'firebase/auth';
 
-let provider = new firebase.auth.GoogleAuthProvider();
+const provider = new firebase.auth.GoogleAuthProvider();
 
 const origin = window.location.origin;
 
@@ -22,20 +22,24 @@ export const Login = () => {
         }
     }
 
-    const login = () => {
+    const login = (e) => {
+        e.preventDefault();
         firebase.auth().signInWithPopup(provider);
     }
 
+    const AnonLogin = (e) => {
+        e.preventDefault();
+        firebase.auth().signInAnonymously();
+    }
     return (
         <div id="loginWrapper">
             <h1 className="title">Meme Space</h1>
             <form id="loginBox">
                 <div className="-loginBox">
-                    <label id="loginLabel">Select a user name: </label> 
-                    <input type="text" id="userNameInput" size="12" required></input>
+                    <input type="submit" value="Google Login" onClick={login}></input>
                 </div>
                 <div className="-loginBox">
-                    <input type="submit" id="loginBtn" value="Enter" onClick={login}></input>
+                    <input type="submit" value="Anon Login" onClick={AnonLogin}></input>
                 </div>
             </form>
             <img id="pepe" src={origin + '/images/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>

@@ -21,7 +21,9 @@ export const Message = () => {
     const handleInput = (e) => {
         const {uid, photoURL, displayName} = auth.currentUser;
         let val = document.getElementById('textArea');
-        sendMsg(val.value, uid, photoURL, displayName);
+        !displayName ? 
+            sendMsg(val.value, uid, 'https://picsum.photos/200', 'Anon' + uid.substring(0,4)):
+            sendMsg(val.value, uid, photoURL, displayName);
         val.value = '';
     }
 
