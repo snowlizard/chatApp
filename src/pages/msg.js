@@ -5,9 +5,13 @@ export const Msg = (props) => {
         <div id="cont">
             <img id="usrPhoto" src={props.photoURL}></img>
             <div id="msgText">
-                <p id="userName">{props.displayName}</p>
-                <p id="timeStamp">{props.sentAt}</p>
-                <p id="msgText">{props.text}</p>
+                <p id="userName">
+                    {props.displayName}
+                    <br/>{props.sentAt}
+                </p>
+                <div id="textBubble">
+                    <div>{props.text}</div>
+                </div>
             </div>
         </div>
     );

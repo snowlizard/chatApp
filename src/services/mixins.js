@@ -11,7 +11,7 @@ export const sendMsg = (msg, uid, photoURL, displayName) => {
         uid,
         photoURL,
         msg,
-        sentAt: moment().format('hh:mm  MM/DD/YY')
+        sentAt: moment().format('LT  L')
     })
 
 }

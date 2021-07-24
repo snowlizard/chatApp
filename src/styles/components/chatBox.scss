@@ -8,3 +8,18 @@
     max-width: 50px;
     max-height: 50px;
 }
+
+#userName{
+    font-size: 0.8em;
+}
+
+#msgText{
+    margin-left: 5px;
+}
+
+#textBubble{
+    color: $aliceBlue;
+    background: $spaceCadet;
+    padding: 8px 15px;
+    border-radius: 20px;
+}

@@ -12,7 +12,7 @@ export const Message = () => {
         const logRef   = database.ref('messages');
         let   logs     = [];
         const listener = logRef.on('value', snapshot => {
-            logs = Object.values(snapshot.val());
+            snapshot.val() !== null ? logs = Object.values(snapshot.val()) : logs = [];
             setChatLog(logs);
         });
         return () => logRef.off('value', listener);
@@ -24,6 +24,16 @@ export const Message = () => {
         sendMsg(val.value, uid, photoURL, displayName);
         val.value = '';
     }
+
+    const testForEnter = (e) => {
+        const key = e.code;
+        if(key === 'Enter'){
+            handleInput();
+        }else{
+            // do nothing
+        }
+    }
+
     const signout = () => {
         firebase.auth().signOut();
     }
@@ -37,7 +47,7 @@ export const Message = () => {
                 <div id="messageArea">
                     {
                         chatLog && chatLog.map( log => 
-                            {return <Msg key={log.sentAt} 
+                            {return <Msg key={log.sentAt + log.msg} 
                                         displayName={log.displayName}
                                         sentAt={log.sentAt}
                                         text={log.msg} 
@@ -46,7 +56,7 @@ export const Message = () => {
                 </div>
                 <div id="inputContainer">
                     <div id="textInput">
-                        <textarea id="textArea"/>
+                        <textarea id="textArea" onKeyDown={testForEnter}/>
                     </div>
                     <span id="separator"></span>
                     <div id="buttonArea">
