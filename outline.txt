@@ -37,3 +37,16 @@ add css
 
 after work on creating database of users?
 with each user containing contacts send private messages
+/---
+
+css done for most part on main page, login needs a bit of work. 
+basic function done for most part in future add more functionality 
+
+ideas
+-contacts
+-add image link
+-files?
+-more login options
+
+
+might branch off and rewrite in react native for mobile application

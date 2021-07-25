@@ -31,6 +31,7 @@ export const Message = () => {
         const key = e.code;
         if(key === 'Enter'){
             handleInput();
+            document.getElementById('textArea').value = '';
         }else{
             // do nothing
         }
@@ -42,7 +43,7 @@ export const Message = () => {
     return(
         <div id="msgContainer">
             <div id="signOut" onClick={signout}>
-                <p>sign out</p>
+                <p>Sign out</p>
             </div>
             <span className="separator"/>
             <div id="backgroundContainer">
@@ -50,6 +51,8 @@ export const Message = () => {
                     {
                         chatLog && chatLog.map( log => 
                             {return <Msg key={log.sentAt + log.msg} 
+                                        uid={log.uid}
+                                        currentUser={firebase.auth().currentUser.uid}
                                         displayName={log.displayName}
                                         sentAt={log.sentAt}
                                         text={log.msg} 
