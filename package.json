@@ -7,7 +7,7 @@
   "homepage": "https://github.com/snowlizard/chatApp#readme",
   "scripts": {
     "start": "webpack serve --mode development --entry ./src/app.js",
-    "build": "webpack --mode development"
+    "build": "webpack --mode production"
   },
   "name": "chatapp",
   "version": "1.0.0",

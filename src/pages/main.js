@@ -10,6 +10,8 @@ export const Message = () => {
     
     let [chatLog, setChatLog] = useState([]);
 
+    // gets database object and copies all values to logs:array
+    // updates screen everytime database gets updated
     useEffect ( () => {
         const logRef   = ref(database, 'messages');
         let   logs     = [];
@@ -20,6 +22,7 @@ export const Message = () => {
 
     }, [database]);
 
+    // send message object to firebase database
     const handleInput = (e) => {
         const {uid, photoURL, displayName} = auth.currentUser;
         let val = document.getElementById('textArea');
@@ -29,6 +32,7 @@ export const Message = () => {
         val.value = '';
     }
 
+    // if enter key is pushed send message
     const testForEnter = (e) => {
         const key = e.code;
         if(key === 'Enter'){

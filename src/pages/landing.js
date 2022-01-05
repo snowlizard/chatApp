@@ -8,6 +8,7 @@ export const Landing = () => {
     const auth = getAuth();
     const [loginState, setLogin] = useState([]);
 
+    // changes login state depending if user is logged in or not
     useEffect( () => {
         auth.onAuthStateChanged( usr => {
             setLogin(usr);

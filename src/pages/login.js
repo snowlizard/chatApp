@@ -5,13 +5,13 @@ import { signInWithPopup, signInAnonymously, GoogleAuthProvider, getAuth, } from
 
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
-
 const origin = window.location.origin;
 
 export const Login = () => {
     const audio = new Audio(origin + '/misc/shootinStar.mp3');
     let isPlaying = false;
 
+    // audio for when pepe is clicked on
     const playMeme = () => { 
         if(!isPlaying){
             audio.play();
@@ -23,15 +23,18 @@ export const Login = () => {
         }
     }
 
+    // login to page via google
     const login = (e) => {
         e.preventDefault();
         signInWithPopup(auth, provider);
     }
 
+    // annon login
     const AnonLogin = (e) => {
         e.preventDefault();
         signInAnonymously(auth);
     }
+
     return (
         <div id="loginWrapper">
             <h1 className="title">Meme Space</h1>
