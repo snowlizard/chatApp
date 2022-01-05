@@ -1,24 +1,18 @@
-import { getDatabase, ref, set } from 'firebase/database'
+import { getDatabase, ref, update, push, set } from 'firebase/database';
 import moment from "moment";
 
-export const database = getDatabase();
+const database = getDatabase();
 
 export const sendMsg = (msg, uid, photoURL, displayName) => {
-    // const collect  = database.ref('messages')
-    // collect.push({
-    //     displayName,
-    //     uid,
-    //     photoURL,
-    //     msg,
-    //     sentAt: moment().format('LT  L')
-    // })
-
-    set(ref(database, 'messages'), {
+    const newPostRef = ref(database, 'messages');
+    const postData =  {
         displayName,
         uid,
         photoURL,
         msg,
         sentAt: moment().format('LT  L')
-    })
+    };
+    
+    push(newPostRef, postData);
 
 }

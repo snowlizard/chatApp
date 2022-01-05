@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
-import { sendMsg, database } from '../services/mixins';
+import { sendMsg } from '../services/mixins';
+import { ref, onValue, getDatabase } from 'firebase/database';
 import { Msg } from './msg';
 
 export const Message = () => {
-    const auth = getAuth()
+    const auth = getAuth();
+    const database = getDatabase();
     
     let [chatLog, setChatLog] = useState([]);
 
     useEffect ( () => {
-        const logRef   = database.ref('messages');
+        const logRef   = ref(database, 'messages');
         let   logs     = [];
-        const listener = logRef.on('value', snapshot => {
-            snapshot.val() !== null ? logs = Object.values(snapshot.val()) : logs = [];
+        onValue(logRef, (snapshot) => {
+            snapshot.val() !== null ? logs = (Object.values(snapshot.val())) : logs = [];
             setChatLog(logs);
         });
-        return () => logRef.off('value', listener);
+
     }, [database]);
 
     const handleInput = (e) => {
@@ -32,14 +34,13 @@ export const Message = () => {
         if(key === 'Enter'){
             handleInput();
             document.getElementById('textArea').value = '';
-        }else{
-            // do nothing
         }
     }
 
     const signout = () => {
-        firebase.auth().signOut();
+        auth.signOut();
     }
+
     return(
         <div id="msgContainer">
             <div id="signOut" onClick={signout}>
@@ -52,7 +53,7 @@ export const Message = () => {
                         chatLog && chatLog.map( log => 
                             {return <Msg key={log.sentAt + log.msg} 
                                         uid={log.uid}
-                                        currentUser={firebase.auth().currentUser.uid}
+                                        currentUser={auth.currentUser.uid}
                                         displayName={log.displayName}
                                         sentAt={log.sentAt}
                                         text={log.msg} 
