@@ -1,11 +1,11 @@
 import React from 'react';
 import { Login } from './login';
 import { Message } from './main';
-import firebase from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 
 export const Landing = () => {
-    const auth = firebase.auth()
+    const auth = getAuth();
     const [loginState, setLogin] = useState([]);
 
     useEffect( () => {

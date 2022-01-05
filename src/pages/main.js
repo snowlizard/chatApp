@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import firebase from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { sendMsg, database } from '../services/mixins';
 import { Msg } from './msg';
 
 export const Message = () => {
-    const auth = firebase.auth();
+    const auth = getAuth()
     
     let [chatLog, setChatLog] = useState([]);
 

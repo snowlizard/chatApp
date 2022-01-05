@@ -1,9 +1,9 @@
-import React from 'react';import '../../public/misc/shootinStar.mp3';
-import myApp from '../services/firebase';
-import firebase from 'firebase';
-import 'firebase/auth';
+import React from 'react';
+import '../../public/misc/shootinStar.mp3';
+import { myApp } from '../services/firebase';
+import { signInWithPopup, signInAnonymously, GoogleAuthProvider, } from "firebase/auth";
 
-const provider = new firebase.auth.GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 
 const origin = window.location.origin;
 
@@ -24,12 +24,12 @@ export const Login = () => {
 
     const login = (e) => {
         e.preventDefault();
-        firebase.auth().signInWithPopup(provider);
+        signInWithPopup(provider);
     }
 
     const AnonLogin = (e) => {
         e.preventDefault();
-        firebase.auth().signInAnonymously();
+        signInAnonymously();
     }
     return (
         <div id="loginWrapper">
