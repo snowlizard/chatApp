@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { sendMsg } from '../services/mixins';
+import Button from '@mui/material/Button';
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { Msg } from './msg';
 
@@ -70,7 +71,11 @@ export const Message = () => {
                     </div>
                     <span id="separator"></span>
                     <div id="buttonArea">
-                        <button id="sendBtn" onClick={handleInput}>Send</button>
+                        <Button id="sendBtn"
+                            variant='contained'
+                            onClick={handleInput}>
+                            Send
+                        </Button>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../public/misc/shootinStar.mp3';
+import Button from '@mui/material/Button';
 import { myApp } from '../services/firebase';
 import { signInWithPopup, signInAnonymously, GoogleAuthProvider, getAuth, } from "firebase/auth";
 
@@ -40,10 +41,14 @@ export const Login = () => {
             <h1 className="title">Meme Space</h1>
             <form id="loginBox">
                 <div className="-loginBox">
-                    <input type="submit" value="Google Login" onClick={login}></input>
+                    <Button variant="contained" onClick={login}>
+                        Google
+                    </Button>
                 </div>
                 <div className="-loginBox">
-                    <input type="submit" value="Anon Login" onClick={AnonLogin}></input>
+                    <Button variant="contained" onClick={AnonLogin}>
+                        Annon Login
+                    </Button>
                 </div>
             </form>
             <img id="pepe" src={origin + '/images/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>
