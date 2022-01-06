@@ -1,3 +1,4 @@
+import React from 'react';
 import { getDatabase, ref, update, push, set } from 'firebase/database';
 import moment from "moment";
 
@@ -13,7 +14,7 @@ export const sendMsg = (msg, uid, photoURL, displayName) => {
         msg,
         sentAt: moment().format('LT  L')
     };
-    
+
     push(newPostRef, postData);
 
 }

@@ -56,7 +56,7 @@ export const Message = () => {
                 <div id="messageArea">
                     {
                         chatLog && chatLog.map( log => 
-                            {return <Msg key={log.sentAt + log.msg} 
+                            {return <Msg key={log.sentAt + log.msg[1]} 
                                         uid={log.uid}
                                         currentUser={auth.currentUser.uid}
                                         displayName={log.displayName}
