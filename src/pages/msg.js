@@ -2,22 +2,26 @@ import React from 'react';
 
 export const Msg = (props) => {
     const msgClass = props.uid === props.currentUser ? 'sent' : 'recieved';
-    const link = new RegExp(/(?<!\p{L})http[^\s]+(?!\p{L})/);
+    const link = new RegExp(/http[^\s]+/);
     const image = new RegExp(/^(<img)/);
 
     const ConvertLink = () => {
-        if(link.test(props.text)){
-            const splitByRegex = props.text.split(link);
-            
-            const theLink = props.text.match(link)
+        const textArray = props.text.split(' ');
 
-            return(<p>
-                {splitByRegex[0]}
-                <a href={theLink} target="_blank" >{theLink}</a>
-                {splitByRegex[1]}
-                </p>)
-        }
-        return (<p>{props.text}</p>)
+        return (
+            <p>
+                {
+                    textArray.map( word => {
+                        if(link.test(word)){
+                            return <a key={word} href={word} target='_blank'>{word}</a>
+                        }else{
+                            return ` ${word} `
+                        }
+                    })
+                }
+            </p>
+        );
+
     }
 
     return(
