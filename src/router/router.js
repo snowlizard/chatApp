@@ -8,7 +8,7 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Landing />} exact={true} />
-                <Route element={< E404 />} />
+                <Route path='*' element={< E404 />} />
             </Routes>
         </BrowserRouter>
     );

@@ -7,12 +7,14 @@ $spaceCadet : #2b2d42;
 
 @font-face {
     font-family: 'blox';
-    src: url('~/public/fonts/Blox.ttf');
+    src: url('~/public/fonts/BloxBRK.woff') format('woff'),
+         url('~/public/fonts/BloxBRK.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'bakso';
-    src: url('~/public/fonts/BaksoSapi.otf');
+    src: url('~/public/fonts/BaksoSapi.woff') format('woff'),
+         url('~/public/fonts/BaksoSapi.ttf') format('truetype');
 }
 
 #app{
