@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { sendMsg } from '../services/mixins';
 import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { Msg } from './msg';
 
@@ -67,9 +68,12 @@ export const Message = () => {
                 </div>
                 <div id="inputContainer">
                     <div id="textInput">
-                        <textarea id="textArea" onKeyDown={testForEnter}/>
+                        <TextField id="textArea"
+                            fullWidth
+                            label='send chat message'
+                            variant="outlined"
+                            onKeyDown={testForEnter}/>
                     </div>
-                    <span id="separator"></span>
                     <div id="buttonArea">
                         <Button id="sendBtn"
                             variant='contained'
