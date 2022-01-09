@@ -60,15 +60,10 @@
 #signOut{
     align-self: flex-start;
     width: 20%;
-    height: 50px;
+    height: 10em;
     left: 0;
     top: 0;
     text-align: center;
-    border-bottom: 2px solid rgba(217, 4, 41, 0.4);
-}
-
-#signOut:hover{
-    background: $spanishRed;
 }
 
 @media (max-width:420px) {

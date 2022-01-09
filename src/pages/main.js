@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { sendMsg } from '../services/mixins';
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import { TextField, List, ListItemButton } from '@mui/material';
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { Msg } from './msg';
 
@@ -49,10 +49,12 @@ export const Message = () => {
 
     return(
         <div id="msgContainer">
-            <div id="signOut" onClick={signout}>
-                <p>Sign out</p>
-            </div>
-            <span className="separator"/>
+            <List id="signOut">
+                <ListItemButton onClick={signout}
+                    component='nav'>
+                    Sign Out
+                </ListItemButton>
+            </List>
             <div id="backgroundContainer">
                 <div id="messageArea">
                     {
