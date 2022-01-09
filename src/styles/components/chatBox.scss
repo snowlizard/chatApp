@@ -1,7 +1,8 @@
 #cont{
     display: flex;
+    flex-flow: column wrap;
     margin: 10px;
-    width: 50%;
+    max-width: 50%;
 }
 
 #usrPhoto{
@@ -12,6 +13,8 @@
 
 #userName{
     font-size: 0.8em;
+    margin-left: .5em;
+    margin-right: .5em;
 }
 
 #msgText{
@@ -26,16 +29,19 @@
 }
 
 .sent{
+    display: flex;
+    flex-flow: row wrap;
     align-self: flex-start;
 }
 
 .recieved{
-    flex-direction: row-reverse;
+    display: flex;
+    flex-flow: row-reverse wrap;
     align-self: flex-end;
 }
 
 .imageLink > img{
-    width: 20em;
-    height: 20em;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }

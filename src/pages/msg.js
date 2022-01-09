@@ -5,16 +5,16 @@ export const Msg = (props) => {
 
     return(
         <div id="cont" className={msgClass}>
-            <img id="usrPhoto" src={props.photoURL}></img>
-            <div id="msgText">
+            <div className={msgClass}>
+                <img id="usrPhoto" src={props.photoURL}></img>
                 <p id="userName">
-                    {props.displayName}
-                    <br/>{props.sentAt}
+                {props.displayName}
+                <br/>{props.sentAt}
                 </p>
+            </div>
+            <div id="msgText">
                 <div id="textBubble">
-                    <div>
-                        { <MsgText message={props.text}/> }
-                    </div>
+                    { <MsgText message={props.text}/> }
                 </div>
             </div>
         </div>
