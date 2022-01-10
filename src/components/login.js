@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../public/misc/shootinStar.mp3';
 import Button from '@mui/material/Button';
 import { myApp } from '../services/firebase';
 import { signInWithPopup, signInAnonymously, GoogleAuthProvider, getAuth, } from "firebase/auth";
@@ -9,7 +8,7 @@ const provider = new GoogleAuthProvider();
 const origin = window.location.origin;
 
 export const Login = () => {
-    const audio = new Audio(origin + '/misc/shootinStar.mp3');
+    const audio = new Audio(origin + '/assets/shootinStar.mp3');
     let isPlaying = false;
 
     // audio for when pepe is clicked on
@@ -35,6 +34,7 @@ export const Login = () => {
         e.preventDefault();
         signInAnonymously(auth);
     }
+    console.log(origin)
 
     return (
         <div id="loginWrapper">
@@ -51,7 +51,7 @@ export const Login = () => {
                     </Button>
                 </div>
             </form>
-            <img id="pepe" src={origin + '/images/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>
+            <img id="pepe" src={'/assets/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>
         </div>
     );
 }
