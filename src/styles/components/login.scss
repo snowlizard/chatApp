@@ -36,8 +36,8 @@
 }
 
 .title{
-    font-family: 'blox';
-    font-size: 5em;
+    font-family: 'bakso';
+    font-size: 7em;
     position: absolute;
     top: 2.2em;
     margin: 0 auto;
@@ -55,10 +55,9 @@ img {
     background: none;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 700px) {
     .title{
-        margin-left: 75px;
-        top: -20;
+        margin: 0 auto;
         font-size: 4em;
     }
 }

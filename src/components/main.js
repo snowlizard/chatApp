@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth } from 'firebase/auth';
 import { sendMsg } from '../services/mixins';
 import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
-import { TextField, List, ListItemButton } from '@mui/material';
+import { TextField, ThemeProvider , createTheme } from '@mui/material';
+import { getAuth } from 'firebase/auth';
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { Msg } from './msg';
+import { Navbar } from './navbar';
 
 export const Main = () => {
     const auth = getAuth();
     const database = getDatabase();
     
     let [chatLog, setChatLog] = useState([]);
+
+    // theme for textfield
+    const theme = createTheme({
+        shape: {
+            borderRadius: 25
+        }
+    })
 
     // gets database object and copies all values to logs:array
     // updates screen everytime database gets updated
@@ -44,18 +52,10 @@ export const Main = () => {
         }
     }
 
-    const signout = () => {
-        auth.signOut();
-    }
-
     return(
         <div id="msgContainer">
-            <List id="signOut">
-                <ListItemButton onClick={signout}
-                    component='nav'>
-                    Sign Out
-                </ListItemButton>
-            </List>
+            <Navbar />
+
             <div id="backgroundContainer">
                 <div id="messageArea">
                     {
@@ -70,13 +70,15 @@ export const Main = () => {
                     }
                 </div>
                 <div id="inputContainer">
+                    <ThemeProvider theme={theme}>
                         <TextField
                             fullWidth
                             placeholder='send message'
                             variant="outlined"
                             onKeyDown={testForEnter}/>
+                    </ThemeProvider>
 
-                    <div id="buttonArea">
+                    <div>
                         <IconButton id="sendBtn"
                             onClick={handleInput}>
                             < SendIcon />
