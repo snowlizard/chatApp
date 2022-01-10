@@ -20,6 +20,8 @@
     flex-direction: column;
 }
 
+// ------------------------
+
 #backgroundContainer{
     align-self: flex-end;
     width:80%;
@@ -30,6 +32,56 @@
     align-items: center;
     justify-content: flex-end;
 }
+
+#cont{
+    display: flex;
+    flex-flow: column wrap;
+    margin: 10px;
+    max-width: 50%;
+}
+
+#usrPhoto{
+    border-radius: 50%;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#userName{
+    font-size: 0.8em;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+#msgText{
+    margin-left: 5px;
+}
+
+#textBubble{
+    color: $aliceBlue;
+    background: $spaceCadet;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.sent{
+    display: flex;
+    flex-flow: row wrap;
+    align-self: flex-start;
+}
+
+.recieved{
+    display: flex;
+    flex-flow: row-reverse wrap;
+    align-self: flex-end;
+}
+
+.imageLink > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+// -------------------------------------
 
 #inputContainer{
     width: 98%;
