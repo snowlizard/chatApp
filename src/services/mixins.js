@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDatabase, ref, update, push, set } from 'firebase/database';
+import { getDatabase, ref, push } from 'firebase/database';
 import moment from "moment";
 
 const database = getDatabase();

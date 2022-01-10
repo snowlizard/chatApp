@@ -1,6 +1,6 @@
 import React from 'react';
 import { Login } from './login';
-import { Message } from './main';
+import { Main } from './main';
 import { getAuth } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 
@@ -19,7 +19,7 @@ export const Landing = () => {
         <div>
             {
                 loginState ?
-                <Message/> :
+                <Main/> :
                 <Login/>
             }
         </div>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { sendMsg } from '../services/mixins';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import SendIcon from '@mui/icons-material/Send';
 import { TextField, List, ListItemButton } from '@mui/material';
 import { ref, onValue, getDatabase } from 'firebase/database';
 import { Msg } from './msg';
 
-export const Message = () => {
+export const Main = () => {
     const auth = getAuth();
     const database = getDatabase();
     
@@ -69,22 +70,22 @@ export const Message = () => {
                     }
                 </div>
                 <div id="inputContainer">
-                    <div id="textInput">
-                        <TextField id="textArea"
+                        <TextField
                             fullWidth
-                            label='send chat message'
+                            placeholder='send message'
                             variant="outlined"
                             onKeyDown={testForEnter}/>
-                    </div>
+
                     <div id="buttonArea">
-                        <Button id="sendBtn"
-                            variant='contained'
+                        <IconButton id="sendBtn"
                             onClick={handleInput}>
-                            Send
-                        </Button>
+                            < SendIcon />
+                        </IconButton>
                     </div>
                 </div>
+
             </div>
+
         </div>
     );
     
