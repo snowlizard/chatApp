@@ -4,15 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $imperialRed;
+    background: var(--imperialRed);
 }
 
 #loginBox{
     width: 30em;
     height: 30em;
-    background-color: $aliceBlue;
+    background-color: var(--aliceBlue);
     border-radius: 5px;
-    box-shadow: 5px 5px 5px $spaceCadet;
+    box-shadow: 5px 5px 5px var(--spaceCadet);
     display: flex;
     flex-flow: column wrap;
     justify-content: center;

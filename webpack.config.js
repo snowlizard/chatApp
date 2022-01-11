@@ -1,11 +1,9 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.js',
-    output: {
-      path: path.join(__dirname, 'public'),
-      filename: 'bundle.js'
-    },
+
     module: {
       rules: [{
         test: /\.js$/,
@@ -15,31 +13,36 @@ module.exports = {
           presets:[
             "@babel/env",
             "@babel/react"
-          ],
-          plugins:[
-            "@babel/plugin-proposal-class-properties",
-            "@babel/plugin-transform-runtime"
           ]
         }
       }, {
-        test: /\.s?css$/,
+        test: /\.(woff|ttf)$/i,
+        type: 'asset/resource'
+      },
+      
+      {
+        test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader',
-          'sass-loader'
+          'css-loader'
         ]
-      }, {
-        test: /\.(gif|svg|jpg|png|otf|ttf|mp3)$/,
-        loader:'file-loader',
-        options:{
-          esModule:false,
-          outputPath:'misc'
-        }
       }]
+
     },
 
-    performance:{
-      maxEntrypointSize: 512000,
-      maxAssetSize: 512000
-    }
+    entry: './src/app.js',
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+      clean: true
+    },
+
+    plugins: [
+      new HtmlWebpackPlugin({ template: path.join(__dirname, "public", "index.html")}),
+      new CopyPlugin({
+        patterns: [
+          {from: "public/assets", to: "assets"}
+        ]
+      })
+    ],
 };

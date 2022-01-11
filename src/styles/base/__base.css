@@ -1,0 +1,34 @@
+:root {
+--spanishRed : #E4112A;
+--imperialRed: #EF233C;
+--amaranthRed: #D90429;
+--aliceBlue  : #edf2f4;
+--manatee    : #8d99ae;
+--spaceCadet : #2b2d42;
+}
+
+@font-face {
+    font-family: 'blox';
+    src: url('../../../public/assets/BloxBRK.woff') format('woff'),
+         url('../../../public/assets/BloxBRK.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'bakso';
+    src: url('../../../public/assets/BaksoSapi.woff') format('woff'),
+         url('../../../public/assets/BaksoSapi.ttf') format('truetype');
+}
+
+#app{
+    width: 100vw;
+    height: 100vh;
+}
+
+a:visited {
+    color: var(--aliceBlue);
+}
+
+a {
+    text-decoration: none;
+    color: var(--aliceBlue);
+}

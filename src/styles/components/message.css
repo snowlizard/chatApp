@@ -9,7 +9,7 @@
     display: flex;
     flex-flow: row;
     align-items: center;
-    background: $imperialRed;
+    background: var(--imperialRed);
 }
 
 #messageArea{
@@ -20,13 +20,13 @@
     flex-direction: column;
 }
 
-// ------------------------
+/* ----------------- */
 
 #backgroundContainer{
     align-self: flex-end;
     width:80%;
     height: 100%;
-    background: $aliceBlue;
+    background: var(--aliceBlue);
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -57,8 +57,8 @@
 }
 
 #textBubble{
-    color: $aliceBlue;
-    background: $spaceCadet;
+    color: var(--aliceBlue);
+    background: var(--spaceCadet);
     padding: 8px 15px;
     border-radius: 20px;
 }
@@ -81,7 +81,7 @@
     object-fit: contain;
 }
 
-// -------------------------------------
+/* -------------------- */
 
 #inputContainer{
     width: 98%;
