@@ -37,8 +37,10 @@ export const Login = () => {
 
     return (
         <div id="loginWrapper">
-            <h1 className="title">Meme Space</h1>
-            <form id="loginBox">
+            <div>
+                <h1 className="title">Meme Space</h1>
+            </div>
+            <div id="loginBox">
                 <div className="-loginBox">
                     <Button variant="contained" onClick={login}>
                         Google
@@ -49,7 +51,7 @@ export const Login = () => {
                         Annon Login
                     </Button>
                 </div>
-            </form>
+            </div>
             <img id="pepe" src={'./assets/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>
         </div>
     );

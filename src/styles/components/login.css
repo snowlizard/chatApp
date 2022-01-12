@@ -1,7 +1,9 @@
 #loginWrapper{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     background: var(--imperialRed);
@@ -38,9 +40,6 @@
 .title{
     font-family: 'bakso';
     font-size: 7em;
-    position: absolute;
-    top: 2.2em;
-    margin: 0 auto;
 }
 
 #pepe{
@@ -57,7 +56,12 @@ img {
 
 @media (max-width: 700px) {
     .title{
-        margin: 0 auto;
-        font-size: 4em;
+        font-size: 3em;
+        overflow: break-word;
+    }
+
+    #loginBox{
+        width: 80%;
+        height: 50%;
     }
 }
