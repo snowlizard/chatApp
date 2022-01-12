@@ -3,13 +3,18 @@
     justify-content: center;
 }
 
+#navbar{
+    position: fixed;
+    margin-top: -90vh;
+    margin-left: 2em;
+}
+
 #msgContainer{
     width: 1200px;
     height: 100vh;
     display: flex;
     flex-flow: row;
     align-items: center;
-    background: var(--imperialRed);
 }
 
 #messageArea{
@@ -24,7 +29,7 @@
 
 #backgroundContainer{
     align-self: flex-end;
-    width:80%;
+    width:100%;
     height: 100%;
     background: var(--aliceBlue);
     display: flex;
@@ -54,6 +59,7 @@
 
 #msgText{
     margin-left: 5px;
+    overflow: break-all;
 }
 
 #textBubble{
@@ -96,20 +102,16 @@
     margin: 10px;
 }
 
-#signOut{
-    align-self: flex-start;
-    width: 20%;
-    margin-top: 0;
-    text-align: center;
-}
 
 
 @media (max-width:420px) {
-    #backgroundContainer{
-        width: 75%;
+    #msgContainer{
+        width: 100vw;
+        height: 100vh;
     }
-    #signOut{
-        width: 25%;
+
+    p {
+        font-size: 1em;
     }
 }
 

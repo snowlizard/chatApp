@@ -1,10 +1,7 @@
 import React from 'react';
 import { getAuth } from 'firebase/auth';
-import { List, ListItemButton, ListItemText } from '@mui/material';
-
-const style = {
-    textAlign: 'center'
-}
+import { List, ListItemButton, ListIteemI, ListItemIcon, IconButton } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const Navbar = () => {
     const auth = getAuth();
@@ -14,12 +11,10 @@ export const Navbar = () => {
     }
 
     return (
-        <List id="signOut">
-            <ListItemButton onClick={signout}
-                style={style}
-                component='nav'>
-                <ListItemText>Sign Out</ListItemText>
-            </ListItemButton>
+        <List id="navbar">
+            <IconButton onClick={signout} sx={{ background: '#e4e4e7'}}>
+                <LogoutIcon />
+            </IconButton>
         </List>
     );
 }

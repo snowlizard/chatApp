@@ -55,7 +55,6 @@ export const Main = () => {
     return(
         <div id="msgContainer">
             <Navbar />
-
             <div id="backgroundContainer">
                 <div id="messageArea">
                     {
@@ -72,6 +71,7 @@ export const Main = () => {
                 <div id="inputContainer">
                     <ThemeProvider theme={theme}>
                         <TextField
+                            id='textArea'
                             fullWidth
                             placeholder='send message'
                             variant="outlined"
