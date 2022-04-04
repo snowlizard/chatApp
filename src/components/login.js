@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
 import { myApp } from '../services/firebase';
 import { signInWithPopup, signInAnonymously, GoogleAuthProvider, getAuth, } from "firebase/auth";
 
@@ -41,16 +42,43 @@ export const Login = () => {
                 <h1 className="title">Meme Space</h1>
             </div>
             <div id="loginBox">
-                <div className="-loginBox">
+                <form id='sign-in'>
+                    <TextField
+                    className='text-input'
+                    label="username"
+                    type="text"
+                    />
+
+                    <TextField
+                    className='text-input'
+                    label="Password"
+                    type="password"
+                    autoComplete="current-password"
+                    />
+                    
+                    <Button variant='contained'>
+                        sign up
+                    </Button>
+
+                    <Button variant='contained'>
+                        LOG IN
+                    </Button>
+                </form>
+
+                <div className="other-logins">
+                    <Button variant="contained">
+                        reset pass
+                    </Button>
+    
                     <Button variant="contained" onClick={login}>
                         Google
                     </Button>
-                </div>
-                <div className="-loginBox">
+
                     <Button variant="contained" onClick={AnonLogin}>
                         Annon Login
                     </Button>
                 </div>
+                
             </div>
             <img id="pepe" src={'./assets/pepeAudio.gif'} alt="playAudio" onClick={playMeme}></img>
         </div>
