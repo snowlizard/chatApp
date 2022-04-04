@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import { myApp } from '../services/firebase';
+import { Link } from 'react-router-dom';
 import { signInWithPopup, signInAnonymously, GoogleAuthProvider, getAuth, } from "firebase/auth";
 
 const auth = getAuth();
@@ -56,9 +57,11 @@ export const Login = () => {
                     autoComplete="current-password"
                     />
                     
-                    <Button variant='contained'>
-                        sign up
-                    </Button>
+                    <Link to='/signup'>
+                        <Button variant='contained'>
+                            sign up
+                        </Button>
+                    </Link>
 
                     <Button variant='contained'>
                         LOG IN
