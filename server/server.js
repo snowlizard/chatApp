@@ -1,6 +1,7 @@
 const express  = require('express');
 const morgan   = require('morgan');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 mongoose
     .connect(`mongodb+srv://mrjack:${process.env.MONGO_PASS}@sandbox.wqouu.mongodb.net/chatApp?retryWrites=true&w=majority`);
