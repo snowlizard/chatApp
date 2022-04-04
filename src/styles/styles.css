@@ -1,3 +1,4 @@
 @import './base/__base.css';
 @import './components/login.css';
 @import './components/message.css';
+@import './components/signup.css';

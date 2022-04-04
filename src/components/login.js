@@ -35,7 +35,6 @@ export const Login = () => {
         e.preventDefault();
         signInAnonymously(auth);
     }
-    console.log(origin)
 
     return (
         <div id="loginWrapper">

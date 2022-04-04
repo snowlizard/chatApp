@@ -1,0 +1,29 @@
+#signup-wrapper{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background: var(--imperialRed);
+}
+
+#signup-box{
+    width: 30em;
+    height: 30em;
+    background-color: var(--aliceBlue);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px var(--spaceCadet);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#bottom-btns{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
