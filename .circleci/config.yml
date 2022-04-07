@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+  heroku: circleci/heroku@1.2.6
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.14.2
+    steps:
+      - checkout
+      - node/install:
+        node-version: '16.14.2'
+      - node/install-packages
+  deploy:
+    docker:
+      - image: cimg/node:16.14.2
+    steps:
+      - heroku/deploy-via-git:
+          api-key: $HEROKU_API_KEY
+          app-name: meme-nation
+          branch: main
+
+workflow:
+  version: 2.1
+  build_deploy:
+    jobs:
+      - build
+      - deploy
