@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
+require('dotenv').config({path: './.env'});
 
 module.exports = {
 
@@ -46,6 +47,8 @@ module.exports = {
           {from: "public/assets", to: "assets"}
         ]
       }),
-      new Dotenv()
+      new webpack.DefinePlugin({
+        "process.env": JSON.stringify(process.env)
+      })
     ],
 };
